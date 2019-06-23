@@ -5,6 +5,10 @@
     "username": "postgres",
     "password": "password",
     "database": "poll_system",
-    "entities": ["src/**/*.entities{.ts,.js}"],
+    "entities": ["src/**/*.entity{.ts,.js}"],
+    "migrations": ["migration/*.ts"],
+    "cli": {
+      "migrationsDir": "migration"
+    },
     "synchronize": false
-}
+  }

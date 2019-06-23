@@ -10,7 +10,7 @@ export class PollService {
     private readonly pollRepository: Repository<Poll>,
   ) {}
 
-  findAll(): Promise<Poll[]> {
+  async findAll(): Promise<Poll[]> {
     return this.pollRepository.find();
   }
 }

@@ -1,10 +1,16 @@
 # nestjs, typeorm, postgres recipe
-1. start nestjs project with cli
-2. install pg, @types/pg, typeorm, and nestjs's typeorm package
-3. 
-
-
-
+1. Start nestjs project with cli
+2. Follow nestjs docs for general database technique (use postgres instead of mysql)
+3. HOWEVER, keep 'synchronize' setting to false (NOT true) (We want to handle schema creation via migrations, not automagically or we risk accidentally wiping out data)
+3. (Set up typeorm config, and the db entity module (entity, service, controller, module, etc) (HOWEVER, use ormconfig.json so that typeorm cli uses appropriate settings too.)
+4. Run postgres in background, have database specified in config created already
+5. Verify things are working by running on localhost and hitting controller endpoint (should get a relation does not exist error, since we did not do migration set up yet)
+6. Globally install typeorm
+7. Globall install ts-node (cuz typeorm cli only works for javascript not typescript)
+8. Add this to npm scripts to handle: "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js" (will need to pass in args via '-- -arg')
+9. Create first migration file with: "npm run typeorm migration:generate -- -n name_of_migration" (You can configure in ormconfig.json where these files get created) ( THIS COMMAND AUTOMATICALLY CREATES YOUR SQL CODE AND MIGRATION FILE BASED ON CHANGES YOU'VE MADE TO YOUR ENTITY !!!)
+10. 
+11. 
 
 ### ........
 
