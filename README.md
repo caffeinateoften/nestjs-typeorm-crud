@@ -8,8 +8,8 @@
 6. Globally install typeorm
 7. Globall install ts-node (cuz typeorm cli only works for javascript not typescript)
 8. Add this to npm scripts to handle: "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js" (will need to pass in args via '-- -arg')
-9. Create first migration file with: "npm run typeorm migration:generate -- -n name_of_migration" (You can configure in ormconfig.json where these files get created) ( THIS COMMAND AUTOMATICALLY CREATES YOUR SQL CODE AND MIGRATION FILE BASED ON CHANGES YOU'VE MADE TO YOUR ENTITY !!!)
-10. 
+9. Make sure that the migrations property in ormconfig.json ends in .ts (not .js) since we are doing this in typescript
+10. Create first migration file with: "npm run typeorm migration:generate -- -n name_of_migration" (You can configure in ormconfig.json where these files get created) ( THIS COMMAND AUTOMATICALLY CREATES YOUR SQL CODE AND MIGRATION FILE BASED ON CHANGES YOU'VE MADE TO YOUR ENTITY !!!)
 11. 
 
 ### ........
