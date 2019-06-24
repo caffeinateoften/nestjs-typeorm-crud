@@ -2,7 +2,7 @@
 1. Start nestjs project with cli
 2. Follow nestjs docs for general database technique (use postgres instead of mysql)
 3. HOWEVER, keep 'synchronize' setting to false (NOT true) (We want to handle schema creation via migrations, not automagically or we risk accidentally wiping out data)
-3. (Set up typeorm config, and the db entity module (entity, service, controller, module, etc) (HOWEVER, use ormconfig.json so that typeorm cli uses appropriate settings too.)
+3. (Set up typeorm config, and the db entity module (entity, service, controller, module, etc) (Can use ormconfig.json at this step to verify typeorm cli uses appropriate settings too.)
 4. Run postgres in background, have database specified in config created already
 5. Verify things are working by running on localhost and hitting controller endpoint (should get a relation does not exist error, since we did not do migration set up yet)
 6. Globally install typeorm
