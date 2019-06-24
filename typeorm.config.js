@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
+const builtFileName = process.argv[2]
+
 const defaultConfig = {
   type: 'postgres',
   host: 'localhost',
@@ -41,6 +43,6 @@ const environment = process.env.NODE_ENV || 'development';
 const config = configMap[environment];
 
 // For running typeorm through npm script, cli will look for specific config
-fs.writeFileSync('built-ormconfig.json', JSON.stringify(config, null, 2))
+fs.writeFileSync(builtFileName, JSON.stringify(config, null, 2))
 
 module.exports = configMap[environment];

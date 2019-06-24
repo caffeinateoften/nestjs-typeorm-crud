@@ -10,7 +10,12 @@
 8. Add this to npm scripts to handle: "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js" (will need to pass in args via '-- -arg')
 9. Make sure that the migrations property in ormconfig.json ends in .ts (not .js) since we are doing this in typescript
 10. Create first migration file with: "npm run typeorm migration:generate -- -n name_of_migration" (You can configure in ormconfig.json where these files get created) ( THIS COMMAND AUTOMATICALLY CREATES YOUR SQL CODE AND MIGRATION FILE BASED ON CHANGES YOU'VE MADE TO YOUR ENTITY !!!)
-11. 
+11. To dynamically handle running in different environments, you can create a js file which will produce the necessary config that nestjs module needs (pass it into forRoot() function)
+     If doing the above, this js file will also need to write to a config file for the CLI to be able to see and use, so you can still manually run typeorm migrate:etc and the right config settings will be used
+     npm script might look like:    "typeorm": "node ./typeorm.config.js built-ormconfig.json && ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config built-ormconfig.json"
+
+     Running a manual migration command will still look the same, just the right NODE_ENV config will be used by the typeorm cli:   npm run typeorm migration:create -- -n migration_name
+
 
 ### ........
 
