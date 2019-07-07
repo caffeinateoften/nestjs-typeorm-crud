@@ -10,5 +10,8 @@ export class Option {
     poll: Poll;
 
     @Column({ length: 500 })
-    text: string;    
+    text: string;
+
+    @Column()
+    votes: number;
 }
